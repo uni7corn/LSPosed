@@ -226,9 +226,9 @@ void Logcat::ProcessBuffer(struct log_msg *buf) {
         shortcut = true;
     }
     if (verbose_ && (shortcut || buf->id() == log_id::LOG_ID_CRASH || entry.pid == my_pid_ ||
-                     tag == "Dobby"sv || tag == "Magisk"sv || tag == "LSPlant"sv ||
-                     tag == "LSPlt"sv || tag.starts_with("LSPosed"sv) || tag == "SELinux"sv ||
-                     tag.starts_with("zygisk"sv))) [[unlikely]] {
+                     tag == "APatchD"sv || tag == "Dobby"sv || tag == "Magisk"sv ||
+                     tag == "LSPlant"sv || tag == "LSPlt"sv || tag.starts_with("LSPosed"sv) ||
+                     tag == "SELinux"sv || tag.starts_with("zygisk"sv))) [[unlikely]] {
         verbose_print_count_ += PrintLogLine(entry, verbose_file_.get());
     }
     if (entry.pid == my_pid_ && tag == "LSPosedLogcat"sv) [[unlikely]] {
